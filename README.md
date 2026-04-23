@@ -4,7 +4,7 @@ A [pre-commit](https://pre-commit.com/) hook that requires explanatory comments 
 
 Lint suppressions silence a tool without leaving any trace of why. This is especially risky when using LLM coding tools: rather than fixing a root cause, an LLM may add a suppression to make a check pass, and without a documented reason it's impossible to tell whether the suppression is legitimate or a shortcut around a real problem. Over time, undocumented suppressions accumulate, become impossible to safely remove, and may be hiding real issues.
 
-This hook enforces that every suppression has a documented reason — making them reviewable, intentional, and eventually removable.
+This hook requires a comment to be present above every suppression — a forcing function that makes suppressions visible and reviewable. It cannot verify that the comment is a legitimate justification, but it does ensure there's something to read and challenge in a code review.
 
 ## Rules
 
