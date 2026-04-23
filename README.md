@@ -9,13 +9,33 @@ A [pre-commit](https://pre-commit.com/) hook that requires explanatory comments 
 
 ## Usage
 
+### As a pre-commit hook
+
 Add to your `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/wizzu/require-suppression-comments
-  rev: v1.0.0
+  rev: v0.1.1
   hooks:
     - id: require-suppression-comments
+```
+
+### As a uv dev dependency
+
+Add to your `pyproject.toml`:
+
+```toml
+[project.optional-dependencies]
+dev = ["require-suppression-comments"]
+
+[tool.uv.sources]
+require-suppression-comments = { git = "https://github.com/wizzu/require-suppression-comments", tag = "v0.1.1" }
+```
+
+Then call it from your `Makefile` or CI:
+
+```
+uv run --extra dev require-suppression-comments src/ tests/
 ```
 
 ## Examples
