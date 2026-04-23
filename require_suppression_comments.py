@@ -16,8 +16,9 @@ import re
 import sys
 from pathlib import Path
 
-# Matches # nosec or # noqa as a suppression annotation at end-of-line (not prose mentions)
-SUPPRESSION_RE = re.compile(r"#\s*(nosec|noqa)\b[\w\s:,]*$")
+# Matches # nosec or # noqa as a suppression annotation at end-of-line (not prose mentions).
+# Rule IDs (B404, E501, etc.) are always uppercase — lowercase after the keyword means prose.
+SUPPRESSION_RE = re.compile(r"#\s*(nosec|noqa)\b[A-Z0-9\s:,]*$")
 
 # Matches any comment line (used to identify comment blocks)
 COMMENT_LINE_RE = re.compile(r"^\s*#")

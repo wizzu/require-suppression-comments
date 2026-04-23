@@ -12,7 +12,7 @@ requires-python = ">=3.9"
 require-suppression-comments = "require_suppression_comments:main"
 
 [project.optional-dependencies]
-dev = ["ruff", "bandit", "mypy"]
+dev = ["ruff", "bandit", "mypy", "pytest"]
 
 [tool.setuptools]
 py-modules = ["require_suppression_comments"]
@@ -36,3 +36,7 @@ max-complexity = 10
 [tool.mypy]
 python_version = "3.9"
 strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"

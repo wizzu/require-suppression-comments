@@ -1,11 +1,11 @@
 SRC = require_suppression_comments.py
 
-.PHONY: check lint format setup
+.PHONY: check lint format test setup
 
 setup:
 	uv sync --extra dev
 
-check: lint
+check: lint test
 
 lint:
 	@echo "==> lint"
@@ -14,6 +14,10 @@ lint:
 	uv run --extra dev bandit $(SRC) -q
 	uv run --extra dev mypy $(SRC)
 	python3 $(SRC) $(SRC)
+
+test:
+	@echo "==> test"
+	uv run --extra dev pytest tests/
 
 format:
 	@echo "==> format"
