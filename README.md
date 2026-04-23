@@ -2,7 +2,9 @@
 
 A [pre-commit](https://pre-commit.com/) hook that requires explanatory comments on lint suppression annotations (`# nosec`, `# noqa`).
 
-Lint suppressions silence a tool without leaving any trace of why. Over time this leads to suppressions that nobody remembers adding, can't be safely removed, and may be hiding real issues. This hook ensures every suppression has a documented reason, making them reviewable and eventually removable.
+Lint suppressions silence a tool without leaving any trace of why. This is especially risky when using LLM coding tools: rather than fixing a root cause, an LLM may add a suppression to make a check pass, and without a documented reason it's impossible to tell whether the suppression is legitimate or a shortcut around a real problem. Over time, undocumented suppressions accumulate, become impossible to safely remove, and may be hiding real issues.
+
+This hook enforces that every suppression has a documented reason — making them reviewable, intentional, and eventually removable.
 
 ## Rules
 
