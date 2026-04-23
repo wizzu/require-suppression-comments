@@ -1,0 +1,6 @@
+- id: require-suppression-comments
+  name: Require suppression comments
+  description: Requires explanatory comments on lint suppression annotations
+  entry: require_suppression_comments.py
+  language: script
+  types: [python]

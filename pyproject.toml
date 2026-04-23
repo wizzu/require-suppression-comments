@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "require-suppression-comments"
+version = "0.1.0"
+description = "Pre-commit hook that requires explanatory comments on lint suppression annotations"
+requires-python = ">=3.9"
+
+[project.scripts]
+require-suppression-comments = "require_suppression_comments:main"
+
+[tool.setuptools]
+py-modules = ["require_suppression_comments"]
